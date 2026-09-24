@@ -826,8 +826,12 @@ class CancelScope:
 
     @property
     def relative_deadline(self) -> float:
-        """Read-write, :class:`float`. The number of seconds remaining until this
-        scope's deadline, relative to the current time.
+        """Read-write, :class:`float`. The number of seconds until this scope's
+deadline, relative to the current time.
+
+        When the scope has not yet been entered, the deadline is relative to the
+        time at which the scope is entered. Once the scope has been entered, the
+        deadline is relative to the current time.
 
         Defaults to :data:`math.inf` ("no deadline"). Must be non-negative.
 
